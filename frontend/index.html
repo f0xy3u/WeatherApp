@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="head">
+        <div class="left">
+            <span class="location" id="topCity">Kladno, Kročehlavy</span>
+            <span class="temp" id="topTemp">10°C</span>
+        </div>
+        <div class="menu">
+            <a href="./7_day_summary/" class="redirect">Denní rozpis</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="shortInfo">
+            <div class="left">
+                <span class="summary">Částečně zataženo</span>
+            </div>
+            <div class="right">
+                <span class="dayTemps">Den: 4°</span>
+                <span>|</span>
+                <span class="nightTemps">Noc: -2°</span>
+            </div>
+        </div>
+        <div class="daySummary">
+            <span class="title">Dnešní předpověď:</span>
+            <div class="container">
+                <span class="gap" style="grid-row: 2;"></span>
+                <span class="gap" style="grid-row: 4;"></span>
+                <span class="gap" style="grid-row: 6;"></span>
+                <span class="day morning">Ráno</span>
+                <span class="day afternoon">Odpoledne</span>
+                <span class="day evening">Večer</span>
+                <span class="day night">Noc</span>
+                <span class="temperature morning">2°</span>
+                <span class="temperature afternoon">3°</span>
+                <span class="temperature evening">-2°</span>
+                <span class="temperature night">-6°</span>
+                <span class="weatherStatus morning"><img id="weatherStatMorning" src="./svgs/blowing-climate-forecast-svgrepo-com.svg" alt=""></span>
+                <span class="weatherStatus afternoon"><img id="weatherStatAfternoon" src="./svgs/climate-cloud-forecast-2-svgrepo-com.svg" alt=""></span>
+                <span class="weatherStatus evening"><img id="weatherStatEvening" src="./svgs/climate-forecast-night-svgrepo-com.svg" alt=""></span>
+                <span class="weatherStatus night"><img id="weatherStatNight" src="./svgs/climate-forecast-rain-svgrepo-com.svg" alt=""></span>
+                <span class="moisture morning"><img src="./svgs/rain.svg" alt="" onerror="this.style.display='none'">3%</span>
+                <span class="moisture afternoon"><img src="./svgs/rain.svg" alt=" "onerror="this.style.display='none'">5%</span>
+                <span class="moisture evening"><img src="" alt="" onerror="this.style.display='none'">--</span>
+                <span class="moisture night"><img src="" alt="" onerror="this.style.display='none'">--</span>
+            </div>
+        </div>
+    </div>
+    <script src="./js/time_setter.js"></script>
+    <script src="./js/weather_updater.js"></script>
+</body>
+</html>

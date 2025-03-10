@@ -1,0 +1,199 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", Arial, sans-serif;
+    box-sizing: border-box;
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+.head {
+    background-image: url('./images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    color: #fff;
+}
+
+.left {
+    width: 50%;
+    height: 100%;
+}
+
+.right {
+    width: 50%;
+    height: 100%;
+}
+
+.head .left {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-shadow: #000 3px 3px 4px;
+}
+
+.location {
+    font-style: italic;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.temp {
+    font-size: 60px;
+    font-weight: 600;
+    text-shadow: #3c3c3c 5px 5px 5px;
+    margin-left: 8%;
+    margin-top: 10px;
+}
+
+.head .menu {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column  ;
+    align-items: end;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #000c3a40;
+    transition: 0.5s;
+}
+
+.menu a:hover {
+    background-color: #000c3a80;
+}
+
+.container {
+    width: 100%;
+    height: 70vh;   
+    display: flex;
+    flex-direction: column;
+    background-color: #000C3A;
+    box-shadow: 0px -20px 80px 40px #000c3a;
+    padding: 40px;
+    z-index: 1;
+}
+
+.shortInfo {
+    display: flex;
+    font-size: 30px;
+    z-index: 2;
+}
+
+.shortInfo .right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.daySummary {
+    margin-top: 35px;
+}
+
+.daySummary .title {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.daySummary .container {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 80px 6px 80px 6px 80px 6px 80px;
+    padding: 0px;
+    padding-left: 4%;
+    padding-right: 4%;
+    width: 100%;
+    height: min-content;
+}
+
+.gap {
+    grid-column: 1 / -1;
+    background-color: #0021A5;
+}
+
+.morning {
+    grid-row: 1;
+}
+
+.afternoon {
+    grid-row: 3;
+}
+
+.evening {
+    grid-row: 5;
+}
+
+.night {
+    grid-row: 7;
+}
+
+.day {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 300; /*Changed by JS to 500 when right time*/
+    font-style: italic;
+    color: #fff;
+    grid-column: 1;
+}
+
+.temperature {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    grid-column: 2;
+    font-weight: 300;
+    color: #FFF; /*Changed by JS to #a5a5a5 when it is coming*/
+}
+
+.weatherStatus {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-column: 3;
+    color: #fff;
+}
+
+.weatherStatus img {
+    width: 40px;
+    height: 40px;
+}
+
+.moisture {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    grid-column: 4;
+    color: #a5a5a5; /*Changed by JS to #FFF when it is coming*/
+}
+
+.moisture img {
+    width: 40px;
+    height: 40%;
+}
