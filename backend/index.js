@@ -4,13 +4,16 @@ const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 const app = express();
+app.set('trust proxy', true);
 
-app.use(cors());
+app.use(cors(origin = 'https://f0xy3u.github.io/WeatherApp/'));
 const port = 3000;
 
 
 // Tvůj API klíč od OpenWeather
-const apiKey = 'instert_API_key_here';
+const apiKeyWeather = 'instert_API_key_here';
+const apiKeyIP = 'insert API key here';
+
 
 function removeDiacritics(str) {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -19,6 +22,24 @@ function removeDiacritics(str) {
 // Endpoint pro získání počasí na základě města
 app.get('/serverCheck', (req, res) => {
     res.json({message: 'Server běží'});
+});
+
+app.get('/ip', async (req, res) => {
+    try {
+        const clientIP = req.headers['x-forwarded-for']?.split(',')[0] 
+            || req.headers['x-real-ip']
+            || req.ip.replace('::ffff:', '')
+            || '127.0.0.1';
+        
+        const response = await axios.get(`https://ipinfo.io/${clientIP}`, {
+            params: {
+                token: apiKeyIP
+            }
+        });
+        res.json(response.data);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 });
 
 app.get('/cityID', async (req, res) => {
@@ -34,7 +55,7 @@ app.get('/cityID', async (req, res) => {
             params: {
                 q: city,
                 limit: 1,
-                appid: apiKey
+                appid: apiKeyWeather
             }
         });
         res.json(response.data);
@@ -57,7 +78,7 @@ app.get('/weather', async (req, res) => {
                 params: {
                     q: normalizedCity,
                     limit: 1,
-                    appid: apiKey
+                    appid: apiKeyWeather
                 }
             });
 
@@ -79,7 +100,7 @@ app.get('/weather', async (req, res) => {
             params: {
                 lat: coordinates.lat,
                 lon: coordinates.lon,
-                appid: apiKey,
+                appid: apiKeyWeather,
                 units: 'metric',
                 lang: 'cs'
             }
@@ -90,7 +111,7 @@ app.get('/weather', async (req, res) => {
                 id: normalizedCity,
                 lat: coordinates.lat,
                 lon: coordinates.lon,
-                appid: apiKey,
+                appid: apiKeyWeather,
                 units: 'metric',
                 lang: 'cs'
             }
@@ -123,7 +144,7 @@ app.get('/dailyForecast', async (req, res) => {
             params: {
                 q: normalizedCity,
                 limit: 1,
-                appid: apiKey
+                appid: apiKeyWeather
             }
         });
 
@@ -145,7 +166,7 @@ app.get('/dailyForecast', async (req, res) => {
         params: {
             lat: coordinates.lat,
             lon: coordinates.lon,
-            appid: apiKey,
+            appid: apiKeyWeather,
             units: 'metric',
             lang: 'cs'
         }
@@ -155,7 +176,7 @@ app.get('/dailyForecast', async (req, res) => {
         params: {
             lat: coordinates.lat,
             lon: coordinates.lon,
-            appid: apiKey,
+            appid: apiKeyWeather,
             units: 'metric',
             lang: 'cs'
         }
