@@ -6,7 +6,10 @@ const cors = require('cors');
 const app = express();
 app.set('trust proxy', true);
 
-app.use(cors(origin = 'https://f0xy3u.github.io/WeatherApp/'));
+app.use(cors({
+    origin: 'https://f0xy3u.github.io',
+    methods: ['GET'],
+}));
 const port = 3000;
 
 
