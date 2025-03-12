@@ -32,7 +32,7 @@ function selectTime(time) {
 
 function rainProbUpdator(pop, element) {
     if (pop > 0) {
-        document.querySelector(`.moisture.${element}`).innerText = `${pop}%`
+        document.querySelector(`.moisture.${element}`).childNodes[1].innerText = `${pop}%`
         document.querySelector(`.moisture.${element}`).childNodes[0].src = `./svgs/rain.svg`
     } else { 
         document.querySelector(`.moisture.${element}`).innerText = '--' 
