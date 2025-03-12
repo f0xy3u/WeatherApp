@@ -29,17 +29,14 @@ async function getWeather() {
         const ipResponse = await fetch('https://weatherappf0xy3u.glitch.me/ip');
         if (!ipResponse.ok) throw new Error('Nelze získat město z IP');
         const ipData = await ipResponse.json();
-        console.log("IP data:", ipData);
 
         const cityIDResponse = await fetch(`https://weatherappf0xy3u.glitch.me/cityID?city=${encodeURIComponent(ipData.city)}`);
         if (!cityIDResponse.ok) throw new Error('Nelze získat ID města');
         const cityIDData = await cityIDResponse.json();
-        console.log("City ID:", cityIDData);
 
         const weatherResponse = await fetch(`https://weatherappf0xy3u.glitch.me/dailyForecast?city=${encodeURIComponent(ipData.city)}`);
         if (!weatherResponse.ok) throw new Error('Nelze získat data o počasí');
         const weatherData = await weatherResponse.json();
-        console.log("Počasí:", weatherData);
 
         //Update the page
         //Updating the top part of the page
