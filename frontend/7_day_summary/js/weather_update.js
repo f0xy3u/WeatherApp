@@ -11,7 +11,7 @@ let svgElement = document.querySelectorAll('.weatherStatus');
 let moistureElement = document.querySelectorAll('.moisture');
 
 function rainProbUpdator(pop, element) {
-    if (pop > 0) {
+    if (pop > 0.05) {
         //Rounding of pop
         pop = Math.round(pop*10)/10;
         moistureElement[element].childNodes[1].innerText = `${pop}%`
